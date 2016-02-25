@@ -1,0 +1,83 @@
+Income B02
+Median_Tot_hhd_inc_weekly	 Median_total_household_income_weekly
+
+Rent($ weekly) B02
+Median_rent_weekly_	 Median_rent_weekly
+
+Mortgage($ monthly) B02
+Median_mortgage_repay_monthly	 Median_mortgage_repayment_monthly
+
+Age B01
+Tot_P_P	 Total_Persons_Persons
+Age_0_4_yr_P	 Age_groups_0_4_years_Persons
+Age_5_14_yr_P	 Age_groups_5_14_years_Persons
+Age_15_19_yr_P	 Age_groups_15_19_years_Persons
+Age_20_24_yr_P	 Age_groups_20_24_years_Persons
+Age_25_34_yr_P	 Age_groups_25_34_years_Persons
+Age_35_44_yr_P	 Age_groups_35_44_years_Persons
+Age_45_54_yr_P	 Age_groups_45_54_years_Persons
+Age_55_64_yr_P	 Age_groups_55_64_years_Persons
+Age_65_74_yr_P	 Age_groups_65_74_years_Persons
+Age_75_84_yr_P	 Age_groups_75_84_years_Persons
+Age_85ov_P	 Age_groups_85_years_and_over_Persons
+
+Labour Force B42B
+P_Tot_LF_Tot	 Persons_Total_labour_force_Total
+
+P_Unem_look_Tot_Tot	 Persons_Unemployed_looking_for_Total_Total
+
+UnemploymentRate = (P_Unem_look_Tot_Tot/P_Tot_LF_Tot)
+
+B42A
+M_Tot_LF_Tot	 Males_Total_labour_force_Total
+
+B42B
+F_Tot_LF_Tot	 Females_Total_labour_force_Total
+
+
+Family composition B25/B30
+B25
+CF_Total_F	 Couple_family_with_Total_Families
+OPF_Total_F	 One_parent_family_with_Total_Families
+Total_F	 Total_Families
+
+B30
+Total_FamHhold	 Total_Family_households
+Total_NonFamHhold	 Total_Non_family_households
+Total_Total	 Total_Total
+
+
+
+Tenure B32
+Total_PDs_Dwellings	 Total_private_dwellings_Dwellings
+
+O_OR_Total	 Owned_outright_Total
+O_MTG_Total	 Owned_with_a_mortgage_Total
+R_Tot_Total	 Rented_Total_Total
+
+OwnedPercent = O_OR_Total / Total_PDs_Dwellings
+MortgagePercent = O_MTG_Total / Total_PDs_Dwellings
+RentPercent = R_Tot_Total / Total_PDs_Dwellings
+
+Public Transport B46
+Tot_P	 Total_Persons
+
+One_method_Train_P	 One_method_Train_Persons
+One_method_Bus_P	 One_method_Bus_Persons
+One_method_Ferry_P	 One_method_Ferry_Persons
+One_met_Tram_incl_lt_rail_P	 One_method_Tram_includes_light_rail_Persons
+
+Worked_home_P	 Worked_at_home_Persons
+Did_not_go_to_work_P	 Did_not_go_to_work_Persons
+Method_travel_to_work_ns_P	 Method_of_travel_to_work_not_stated_Persons
+
+PublicTranssportTotal = (One_method_Train_P + One_method_Bus_P + One_method_Ferry_P + One_met_Tram_incl_lt_rail_P)
+TravelTotal = Total_Person - (Worked_home_P + Did_not_go_to_work_P + Method_travel_to_work_ns_P)
+PublicTransPercent = PublicTransportTotal/TravelTotal
+
+One parent born overseas B08B
+Tot_P_Tot_Resp	 Total_Persons_Total_Responses
+
+Tot_P_BP_B_Aus	 Total_Persons_Both_parents_born_in_Australia
+
+OverseasParentPercent=(Tot_P_Tot_Resp - Tot_P_BP_B_Aus)/Tot_P_Tot_Resp
