@@ -42,6 +42,8 @@ var svg = d3.select("body").append("svg")
 d3.csv("data.csv", function(error, data) {
   if (error) throw error;
 
+console.log(d.label);
+
   // Coerce the strings to numbers.
   data.forEach(function(d) {
     d.x = +d.x;
