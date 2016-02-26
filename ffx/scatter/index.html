@@ -42,13 +42,16 @@ var svg = d3.select("body").append("svg")
 d3.csv("data.csv", function(error, data) {
   if (error) throw error;
 
-console.log(data.label[0]);
 
   // Coerce the strings to numbers.
   data.forEach(function(d) {
     d.x = +d.x;
     d.y = +d.y;
+    d.label = d.label;
   });
+  
+  console.log(d.label);
+  console.log(data.label);
 
   // Compute the scales’ domains.
   x.domain(d3.extent(data, function(d) { return d.x; })).nice();
