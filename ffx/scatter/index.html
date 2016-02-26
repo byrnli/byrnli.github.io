@@ -50,7 +50,7 @@ d3.csv("data.csv", function(error, data) {
     d.label = d.label;
   });
   
-  console.log(data.label);
+  console.log(data[1].label);
 
   // Compute the scales’ domains.
   x.domain(d3.extent(data, function(d) { return d.x; })).nice();
