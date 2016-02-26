@@ -71,13 +71,6 @@ d3.csv("data.csv", function(error, data) {
       .attr("class", d.label)
       .attr("d", d3.svg.symbol().type("triangle-up"))
       .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
-      
- svg.selectAll(".LNP")
-      .data(data)
-    .enter().append("path")
-      .attr("class", "point")
-      .attr("d", d3.svg.symbol().type("triangle-up"))
-      .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
 });
 
 </script>
