@@ -25,7 +25,7 @@ body {
 
 var margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = 960 - margin.left - margin.right,
-    height = 100 - margin.top - margin.bottom;
+    height = 50 - margin.top - margin.bottom;
 
 var x = d3.scale.linear()
     .range([0, width]);
@@ -65,6 +65,14 @@ d3.csv("data.csv", function(error, data) {
 
   // Add the points!
   svg.selectAll(".point")
+      .data(data)
+    .enter().append("path")
+      .attr("class", "point")
+      .attr("class", d.label)
+      .attr("d", d3.svg.symbol().type("triangle-up"))
+      .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
+      
+ svg.selectAll(".LNP")
       .data(data)
     .enter().append("path")
       .attr("class", "point")
