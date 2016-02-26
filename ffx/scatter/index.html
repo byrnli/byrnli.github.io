@@ -72,7 +72,7 @@ d3.csv("data.csv", function(error, data) {
       .data(data)
     .enter().append("path")
       .attr("class", "point")
-      .attr("class", data.label)
+      .attr("class", fucntion(d){data[d].label;})
       .attr("d", d3.svg.symbol().type("triangle-up"))
       .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
 });
