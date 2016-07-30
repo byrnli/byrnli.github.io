@@ -55,13 +55,11 @@ document.getElementById("unsubERP").onclick =  function(){unsub(ERP)};
 document.getElementById("unsubGDP").onclick =  function(){unsub(GDP)};
 function unsub(indicator) {
 OneSignal.push(["deleteTag", "indicator"]);
-}]);
 }
 
 document.getElementById("unsubIIP").onclick =  function(){unsub(IIP)}; 
 function unsub(indicator) {
 OneSignal.push(["deleteTag", "IIP"]);
-}]);
 }
  
 
