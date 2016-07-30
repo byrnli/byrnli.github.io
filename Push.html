@@ -12,12 +12,20 @@
       }
     }]);
   </script>
+<script>
+  
+function checkSub() {OneSignal.push(["getTags", function(tags) {
+    console.log("OneSignal getTags:", tags);
+  }]); }
+
+</script>
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-
 </style>
 <body>
+
+<input type="button" value="Check Subs" onclick="checkSub">
 
 
               <script type="text/javascript">
