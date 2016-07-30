@@ -14,9 +14,7 @@
   </script>
 <script>
   
-function checkSub() {OneSignal.push(["getTags", function(tags) {
-    console.log("OneSignal getTags:", tags);
-  }]); }
+document.getElementById("checkSub").onclick = OneSignal.push(["getTags", function(tags) {console.log("OneSignal getTags:", tags);}]);
 
 </script>
 </head>
@@ -25,7 +23,7 @@ function checkSub() {OneSignal.push(["getTags", function(tags) {
 </style>
 <body>
 
-<input type="button" value="Check Subs" onclick="checkSub">
+<input type="button" id="checkSub" value="Check Subs">
 
 
               <script type="text/javascript">
