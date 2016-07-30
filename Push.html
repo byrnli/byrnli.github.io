@@ -50,15 +50,15 @@ OneSignal.push(["sendTag", "IIP", "subcribe", function(tagsSent) {
 }]);
 }
   
-document.getElementById("unsubCPI").onclick =  function(){unsub(CPI)}; 
-document.getElementById("unsubERP").onclick =  function(){unsub(ERP)};
-document.getElementById("unsubGDP").onclick =  function(){unsub(GDP)};
+document.getElementById("unsubCPI").onclick =  function(){unsub("CPI")}; 
+document.getElementById("unsubERP").onclick =  function(){unsub("ERP")};
+document.getElementById("unsubGDP").onclick =  function(){unsub("GDP")};
 function unsub(indicator) {
-OneSignal.push(["deleteTag", "indicator"]);
+OneSignal.push(["deleteTag", indicator]);
 }
 
-document.getElementById("unsubIIP").onclick =  function(){unsub(IIP)}; 
-function unsub(indicator) {
+document.getElementById("unsubIIP").onclick =  function(){unsub()}; 
+function unsub() {
 OneSignal.push(["deleteTag", "IIP"]);
 }
  
