@@ -12,20 +12,21 @@
       }
     }]);
   </script>
-<script>
-  
-document.getElementById("checkSub").onclick = OneSignal.push(["getTags", function(tags) {console.log("OneSignal getTags:", tags);}]);
-
-</script>
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 </style>
 <body>
 
+<button type="button" id="checksub">Check sub</button>
+
 <input type="button" id="checkSub" value="Check Subs">
 
+<script>
+  
+document.getElementById("checkSub").onclick = OneSignal.push(["getTags", function(tags) {console.log("OneSignal getTags:", tags);}]);
 
+</script>
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
