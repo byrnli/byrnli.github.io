@@ -24,7 +24,10 @@
 
 <script>
   
-document.getElementById("checkSub").onclick = OneSignal.push(["getTags", function(tags) {console.log("OneSignal getTags:", tags);}]);
+document.getElementById("checkSub").onclick =  function(){checkOneTwo()};
+function checkOneTwo() {
+OneSignal.push(["getTags", function(tags) {console.log("OneSignal getTags:", tags);}]);
+}
 
 </script>
               <script type="text/javascript">
