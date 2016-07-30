@@ -18,11 +18,53 @@
 </style>
 <body>
 
+<p>Subscribe: <button type="button" id="subCPI">CPI</button>
+<button type="button" id="subERP">ERP</button>
+<button type="button" id="subGDP">GDP</button>
+<button type="button" id="subIIP">IIP</button>
+<br>
+Unsubscribe: <button type="button" id="unsubCPI">CPI</button>
+<button type="button" id="unsubERP">ERP</button>
+<button type="button" id="unsubGDP">GDP</button>
+<button type="button" id="unsubIIP">IIP</button>
+<br>
 <button type="button" id="checkSub">Check sub</button>
+</p>
 
 
 <script>
+
+document.getElementById("subCPI").onclick =  function(){sub(CPI)};
+document.getElementById("subERP").onclick =  function(){sub(ERP)};
+document.getElementById("subGDP").onclick =  function(){sub(GDP)};
+function sub(indicator) {
+OneSignal.push(["sendTag", "indicator", "subscribe", function(tagsSent) {
+  // Callback called when tags have finished sending
+}]);
+}
+
+document.getElementById("subIIP").onclick =  function(){subi()};
+function subi() {
+OneSignal.push(["sendTag", "IIP", "subcribe", function(tagsSent) {
+  // Callback called when tags have finished sending
+}]);
+}
   
+document.getElementById("unsubCPI").onclick =  function(){unsub(CPI)}; 
+document.getElementById("unsubERP").onclick =  function(){unsub(ERP)};
+document.getElementById("unsubGDP").onclick =  function(){unsub(GDP)};
+function unsub(indicator) {
+OneSignal.push(["deleteTag", "indicator"]);
+}]);
+}
+
+document.getElementById("unsubIIP").onclick =  function(){unsub(IIP)}; 
+function unsub(indicator) {
+OneSignal.push(["deleteTag", "IIP"]);
+}]);
+}
+ 
+
 document.getElementById("checkSub").onclick =  function(){checkOneTwo()};
 function checkOneTwo() {
 OneSignal.push(["getTags", function(tags) {console.log("OneSignal getTags:", tags);}]);
