@@ -1,5 +1,18 @@
 <html>
 <head title="Push it good">
+  <link rel="manifest" href="/manifest.json">
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+  <script>
+    var OneSignal = OneSignal || [];
+    OneSignal.push(["init", {
+      appId: "c6700af1-f917-406a-a401-6195b752a47e",
+      autoRegister: false,
+      notifyButton: {
+        enable: true /* Set to false to hide */
+      }
+    }]);
+  </script>
+</head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 
