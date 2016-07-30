@@ -18,13 +18,12 @@
 </style>
 <body>
 
-<button type="button" class="checkSub">Check sub</button>
+<button type="button" id="checkSub">Check sub</button>
 
-<input type="button" class="checkSub" value="Check Subs">
 
 <script>
   
-document.getElementsByClassName("checkSub").onclick =  function(){checkOneTwo()};
+document.getElementById("checkSub").onclick =  function(){checkOneTwo()};
 function checkOneTwo() {
 OneSignal.push(["getTags", function(tags) {console.log("OneSignal getTags:", tags);}]);
 }
