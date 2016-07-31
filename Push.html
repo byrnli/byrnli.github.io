@@ -34,12 +34,18 @@ Unsubscribe: <button type="button" id="unsubCPI">CPI</button>
 
 <script>
 
+var CPI = "CPI";
+var ERP = "ERP";
+var GDP = "GDP";
+
+
 document.getElementById("subCPI").onclick =  function(){sub(CPI)};
-document.getElementById("subERP").onclick =  function(){sub(ERP)};
-document.getElementById("subGDP").onclick =  function(){sub(GDP)};
+document.getElementById("subERP").onclick =  function(){sub("ERP")};
+document.getElementById("subGDP").onclick =  function(){sub("GDP")};
 function sub(indicator) {
 OneSignal.push(["sendTag", "indicator", "subscribe", function(tagsSent) {
   // Callback called when tags have finished sending
+  console.log
 }]);
 }
 
@@ -50,7 +56,7 @@ OneSignal.push(["sendTag", "IIP", "subcribe", function(tagsSent) {
 }]);
 }
   
-document.getElementById("unsubCPI").onclick =  function(){unsub("CPI")}; 
+document.getElementById("unsubCPI").onclick =  function(){unsub(CPI)}; 
 document.getElementById("unsubERP").onclick =  function(){unsub("ERP")};
 document.getElementById("unsubGDP").onclick =  function(){unsub("GDP")};
 function unsub(indicator) {
