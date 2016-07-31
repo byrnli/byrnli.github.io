@@ -43,10 +43,13 @@ document.getElementById("subCPI").onclick =  function(){sub(CPI)};
 document.getElementById("subERP").onclick =  function(){sub("ERP")};
 document.getElementById("subGDP").onclick =  function(){sub("GDP")};
 function sub(indicator) {
-OneSignal.push(["sendTag", "indicator", "subscribe", function(tagsSent) {
-  // Callback called when tags have finished sending
-  console.log
-}]);
+var subarray = new Array("sendTag", indicator, "subscribe", function(tagsSent) {console.log});
+OneSignal.push(subarray);
+
+//OneSignal.push(["sendTag", "indicator", "subscribe", function(tagsSent) {
+//  // Callback called when tags have finished sending
+//  console.log
+//}]);
 }
 
 document.getElementById("subIIP").onclick =  function(){subi()};
