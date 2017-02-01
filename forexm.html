@@ -51,10 +51,10 @@ function getRates() {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
       cbmrates = JSON.parse(xhttp.responseText);
       console.log(cbmrates);
-	  usdmmk = cbmrates.rates.USD.replace(',','');
-	  audmmk = cbmrates.rates.AUD;
-	  audthb = (cbmrates.rates.AUD / cbmrates.rates.THB);
-	  audusd = (cbmrates.rates.AUD / Number(cbmrates.rates.USD.replace(',','')));
+	  usdmmk = Number(cbmrates.rates.USD.replace(',',''));
+	  audmmk = Number(cbmrates.rates.AUD.replace(',',''));
+	  audthb = (Number(cbmrates.rates.AUD.replace(',','')) / Number(cbmrates.rates.THB.replace(',','')));
+	  audusd = (Number(cbmrates.rates.USD.replace(',','')) / Number(cbmrates.rates.USD.replace(',','')));
       document.getElementById("AUDinMMK").innerHTML = Number(audmmk).toFixed(2);
 	  document.getElementById("AUDinTHB").innerHTML = Number(audthb).toFixed(2);
 	  document.getElementById("AUDinUSD").innerHTML = Number(audusd).toFixed(2);
