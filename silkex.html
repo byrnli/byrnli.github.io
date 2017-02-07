@@ -22,45 +22,57 @@ font-weight: bolder;
 
 <div id="demo">
 	<br>
-	<div class="ratesdiv">1 AUD is 
-		<span id="AUDinMMK"></span> Kyat
+	<div class="ratesdiv">
+		<span id="auCNY"></span> Chinese yuan (CNY)
 	</div>
-	<div class="ratesdiv">1 AUD is 
-		<span id="AUDinTHB"></span> Baht
+	<div class="ratesdiv">
+		<span id="auKZT"></span> Kazak Tenge (KZT)
 	</div>
-	<div class="ratesdiv">1 AUD is 
-		<span id="AUDinUSD"></span> US cents
+	<div class="ratesdiv">
+		<span id="auKGS"></span> Kyrgyz som (KGS)
 	</div>
-	<div class="ratesdiv">1 USD is 
-		<span id="USDinMMK"></span> Kyat
+	<div class="ratesdiv">
+		<span id="auTMT"></span> Turkmeni manat (TMT)
+	</div>
+	<div class="ratesdiv">
+		<span id="auUZS"></span> Uzbek sum (UZS)
+	</div>
+	<div class="ratesdiv">
+		<span id="auUSD"></span> US dollar (USD)
 	</div>
 	<br>
 	<div id="lastupdate">These rates updated at <span id=update></span></div>
 </div>
 
 <script>
-var usdmmk = null;
-var audmmk = null;
-var audusd = null;
-var audthb = null;
+var auCNY = null;
+var auKZT = null;
+var auKGS = null;
+var auTMT = null;
+var auUZS = null;
+var auUSD = null;
 var lastupdate = null;
 
 function getRates() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
-      opxrates = JSON.parse(xhttp.responseText);
-      console.log(opxrates);
-      console.log(opxrates.rates);
-	  usdmmk = Number(cbmrates.rates.USD.replace(',',''));
-	  audmmk = Number(cbmrates.rates.AUD.replace(',',''));
-	  audthb = (Number(cbmrates.rates.AUD.replace(',','')) / Number(cbmrates.rates.THB.replace(',','')));
-	  audusd = (Number(cbmrates.rates.AUD.replace(',','')) / Number(cbmrates.rates.USD.replace(',','')));
-      document.getElementById("AUDinMMK").innerHTML = Number(audmmk).toFixed(2);
-	  document.getElementById("AUDinTHB").innerHTML = Number(audthb).toFixed(2);
-	  document.getElementById("AUDinUSD").innerHTML = Number(audusd).toFixed(2);
-	  document.getElementById("USDinMMK").innerHTML = Number(usdmmk).toFixed(2);
-	  document.getElementById("update").innerHTML = Date(cbmrates.timestamp);
+      opx = JSON.parse(xhttp.responseText);
+      console.log(opx);
+      console.log(opx.rates);
+	auCNY = opx.rates.CNY/opx.rates.AUD;
+	auKZT = opx.rates.KZT/opx.rates.AUD;
+	auKGS = opx.rates.KGS/opx.rates.AUD;
+	auTMT = opx.rates.TMT/opx.rates.AUD;
+	auUZS = opx.rates.UZS/opx.rates.AUD;
+	auUSD = opx.rates.USD/opx.rates.AUD;
+	
+	document.getElementById("auCNY").innerHTML = auCNY;
+	document.getElementById("auKZT").innerHTML = auKZT;
+	document.getElementById("auKGS").innerHTML = auKGS;
+	document.getElementById("auTMT").innerHTML = auTMT;
+	document.getElementById("auUZS").innerHTML = auUZS;
+	document.getElementById("auUSD").innerHTML = auUSD;
     }
   };
   xhttp.open("GET", "https://openexchangerates.org/api/latest.json?app_id=013a14a8528e43259be556f393e6d5a3", true);
