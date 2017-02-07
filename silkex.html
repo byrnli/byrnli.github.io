@@ -67,12 +67,12 @@ function getRates() {
 	auUZS = opx.rates.UZS/opx.rates.AUD;
 	auUSD = opx.rates.USD/opx.rates.AUD;
 	
-	document.getElementById("auCNY").innerHTML = auCNY;
-	document.getElementById("auKZT").innerHTML = auKZT;
-	document.getElementById("auKGS").innerHTML = auKGS;
-	document.getElementById("auTMT").innerHTML = auTMT;
-	document.getElementById("auUZS").innerHTML = auUZS;
-	document.getElementById("auUSD").innerHTML = auUSD;
+	document.getElementById("auCNY").innerHTML = auCNY.toFixed(2);
+	document.getElementById("auKZT").innerHTML = auKZT.toFixed(2);
+	document.getElementById("auKGS").innerHTML = auKGS.toFixed(2);
+	document.getElementById("auTMT").innerHTML = auTMT.toFixed(2);
+	document.getElementById("auUZS").innerHTML = auUZS.toFixed(2);
+	document.getElementById("auUSD").innerHTML = auUSD.toFixed(2);
     }
   };
   xhttp.open("GET", "https://openexchangerates.org/api/latest.json?app_id=013a14a8528e43259be556f393e6d5a3", true);
