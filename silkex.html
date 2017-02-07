@@ -1,0 +1,85 @@
+<html>
+<head title=""Exchange rates">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+#popNow {
+font-size: 2em;
+font-weight: bolder;
+}
+#demo{
+	border-radius: 25px;
+	border: 2px solid #349834;
+	width: 235px;
+	padding: 10px;
+	text-align: center;
+	font-family: sans-serif;
+	}
+#lastupdate{
+	font-size: 0.5em;
+}
+</style>
+<body onload="getRates();">
+
+<div id="demo">
+	<br>
+	<div class="ratesdiv">1 AUD is 
+		<span id="AUDinMMK"></span> Kyat
+	</div>
+	<div class="ratesdiv">1 AUD is 
+		<span id="AUDinTHB"></span> Baht
+	</div>
+	<div class="ratesdiv">1 AUD is 
+		<span id="AUDinUSD"></span> US cents
+	</div>
+	<div class="ratesdiv">1 USD is 
+		<span id="USDinMMK"></span> Kyat
+	</div>
+	<br>
+	<div id="lastupdate">These rates updated at <span id=update></span></div>
+</div>
+
+<script>
+var usdmmk = null;
+var audmmk = null;
+var audusd = null;
+var audthb = null;
+var lastupdate = null;
+
+function getRates() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      opxrates = JSON.parse(xhttp.responseText);
+      console.log(opxrates);
+      console.log(opxrates.rates);
+	  usdmmk = Number(cbmrates.rates.USD.replace(',',''));
+	  audmmk = Number(cbmrates.rates.AUD.replace(',',''));
+	  audthb = (Number(cbmrates.rates.AUD.replace(',','')) / Number(cbmrates.rates.THB.replace(',','')));
+	  audusd = (Number(cbmrates.rates.AUD.replace(',','')) / Number(cbmrates.rates.USD.replace(',','')));
+      document.getElementById("AUDinMMK").innerHTML = Number(audmmk).toFixed(2);
+	  document.getElementById("AUDinTHB").innerHTML = Number(audthb).toFixed(2);
+	  document.getElementById("AUDinUSD").innerHTML = Number(audusd).toFixed(2);
+	  document.getElementById("USDinMMK").innerHTML = Number(usdmmk).toFixed(2);
+	  document.getElementById("update").innerHTML = Date(cbmrates.timestamp);
+    }
+  };
+  xhttp.open("GET", "https://openexchangerates.org/api/latest.json?app_id=013a14a8528e43259be556f393e6d5a3", true);
+  xhttp.send();
+}
+
+
+	
+
+</script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-73374840-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+</body>
+</html>
