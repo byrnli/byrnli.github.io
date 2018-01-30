@@ -40,7 +40,7 @@ function popClockFetch() {
       console.log(rateMillisec);
     }
   };
-  xhttp.open("GET", "http://www.abs.gov.au/api/demography/populationprojection", true);
+  xhttp.open("GET", "https://absapiphp.herokuapp.com/proxy.php?url=http://www.abs.gov.au/api/demography/populationprojection", true);
   xhttp.send();
 }
 	
