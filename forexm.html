@@ -15,60 +15,54 @@ font-weight: bolder;
 	font-family: sans-serif;
 	}
 #lastupdate{
-	font-size: 0.5em;
+	font-size: 0.8em;
 }
 </style>
 <body onload="getRates();">
-
 <div id="demo">
 	<br>
 	<div class="ratesdiv">1 AUD is 
-		<span id="AUDinMMK"></span> Kyat
+		<span id="AUDinMXN"></span> Mexican Pesos
 	</div>
 	<div class="ratesdiv">1 AUD is 
-		<span id="AUDinTHB"></span> Baht
+		<span id="AUDinPEN"></span> Peruvian Sol
 	</div>
 	<div class="ratesdiv">1 AUD is 
 		<span id="AUDinUSD"></span> US cents
 	</div>
 	<div class="ratesdiv">1 USD is 
-		<span id="USDinMMK"></span> Kyat
+		<span id="USDinMXN"></span> Kyat
 	</div>
 	<br>
 	<div id="lastupdate">These rates updated at <span id=update></span></div>
 </div>
-
 <script>
-var usdmmk = null;
-var audmmk = null;
+var usdmxn = null;
+var audmxn = null;
 var audusd = null;
-var audthb = null;
+var audpen = null;
 var lastupdate = null;
-
 function getRates() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
-      cbmrates = JSON.parse(xhttp.responseText);
-      console.log(cbmrates);
-	  usdmmk = Number(cbmrates.rates.USD.replace(',',''));
-	  audmmk = Number(cbmrates.rates.AUD.replace(',',''));
-	  audthb = (Number(cbmrates.rates.AUD.replace(',','')) / Number(cbmrates.rates.THB.replace(',','')));
-	  audusd = (Number(cbmrates.rates.AUD.replace(',','')) / Number(cbmrates.rates.USD.replace(',','')));
-      document.getElementById("AUDinMMK").innerHTML = Number(audmmk).toFixed(2);
-	  document.getElementById("AUDinTHB").innerHTML = Number(audthb).toFixed(2);
-	  document.getElementById("AUDinUSD").innerHTML = Number(audusd).toFixed(2);
-	  document.getElementById("USDinMMK").innerHTML = Number(usdmmk).toFixed(2);
-	  document.getElementById("update").innerHTML = Date(cbmrates.timestamp);
+      ratesnow = JSON.parse(xhttp.responseText);
+      console.log(ratesnow);
+	  usdmxn = ratesnow.rates.MXN;
+	  audmxn = (ratesnow.rates.MXN / ratesnow.rates.AUD);
+	  audpen = (ratesnow.rates.pen / ratesnow.rates.AUD);
+	  audusd = (1 / ratesnow.rates.AUD);
+      document.getElementById("AUDinMXN").innerHTML = audmxn.toFixed(2);
+	  document.getElementById("AUDinPEN").innerHTML = audpen.toFixed(2);
+	  document.getElementById("AUDinUSD").innerHTML = (100 * audusd).toFixed(2);
+	  document.getElementById("USDinMXN").innerHTML = usdmxn.toFixed(2);
+	  document.getElementById("update").innerHTML = Date(ratesnow.timestamp);
     }
   };
-  xhttp.open("GET", "https://crossorigin.me/http://forex.cbm.gov.mm/api/latest", true);
+  xhttp.open("GET", "https://openexchangerates.org/api/latest.json?app_id=013a14a8528e43259be556f393e6d5a3", true);
   xhttp.send();
 }
-
-
 	
-
 </script>
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
