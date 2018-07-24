@@ -50,7 +50,7 @@ function getRates() {
       console.log(ratesnow);
 	  usdmxn = ratesnow.rates.MXN;
 	  audmxn = (ratesnow.rates.MXN / ratesnow.rates.AUD);
-	  audpen = (ratesnow.rates.pen / ratesnow.rates.AUD);
+	  audpen = (ratesnow.rates.PEN / ratesnow.rates.AUD);
 	  audusd = (1 / ratesnow.rates.AUD);
       document.getElementById("AUDinMXN").innerHTML = audmxn.toFixed(2);
 	  document.getElementById("AUDinPEN").innerHTML = audpen.toFixed(2);
