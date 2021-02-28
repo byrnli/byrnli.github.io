@@ -20,7 +20,7 @@ function loadMales() {
       console.log(males);
     }
   };
-  xhttp.open("GET", "http://stat.abs.gov.au/itt/query.jsp?method=GetGenericData&datasetid=POP_PROJ_2011&or=AGE.A04,AGE.A59,AGE.A10,AGE.A15,AGE.A20,AGE.A25,AGE.A30,AGE.A35,AGE.A40,AGE.A45,AGE.A50,AGE.A55,AGE.A60,AGE.A65,AGE.A70,AGE.A75,AGE.A80,AGE.A85,AGE.A90,AGE.A95,AGE.A99&and=SEX_ABS.1,ASGS_2011.0,FERTILITY.2,MORTALITY.2,NOM.2,FREQUENCY.A&start=2012", false);
+  xhttp.open("GET", "http://itt.abs.gov.au/itt/query.jsp?method=GetGenericData&datasetid=POP_PROJ_2011&or=AGE.A04,AGE.A59,AGE.A10,AGE.A15,AGE.A20,AGE.A25,AGE.A30,AGE.A35,AGE.A40,AGE.A45,AGE.A50,AGE.A55,AGE.A60,AGE.A65,AGE.A70,AGE.A75,AGE.A80,AGE.A85,AGE.A90,AGE.A95,AGE.A99&and=SEX_ABS.1,ASGS_2011.0,FERTILITY.2,MORTALITY.2,NOM.2,FREQUENCY.A&start=2012", false);
   xhttp.send();
 }
 
@@ -39,7 +39,7 @@ function loadFemales() {
       console.log(females);
     }
   };
-  xhttp.open("GET", "http://stat.abs.gov.au/itt/query.jsp?method=GetGenericData&datasetid=POP_PROJ_2011&or=AGE.A04,AGE.A59,AGE.A10,AGE.A15,AGE.A20,AGE.A25,AGE.A30,AGE.A35,AGE.A40,AGE.A45,AGE.A50,AGE.A55,AGE.A60,AGE.A65,AGE.A70,AGE.A75,AGE.A80,AGE.A85,AGE.A90,AGE.A95,AGE.A99&and=SEX_ABS.2,ASGS_2011.0,FERTILITY.2,MORTALITY.2,NOM.2,FREQUENCY.A&start=2012",false);
+  xhttp.open("GET", "http://itt.abs.gov.au/itt/query.jsp?method=GetGenericData&datasetid=POP_PROJ_2011&or=AGE.A04,AGE.A59,AGE.A10,AGE.A15,AGE.A20,AGE.A25,AGE.A30,AGE.A35,AGE.A40,AGE.A45,AGE.A50,AGE.A55,AGE.A60,AGE.A65,AGE.A70,AGE.A75,AGE.A80,AGE.A85,AGE.A90,AGE.A95,AGE.A99&and=SEX_ABS.2,ASGS_2011.0,FERTILITY.2,MORTALITY.2,NOM.2,FREQUENCY.A&start=2012",false);
   xhttp.send();
 }
 
