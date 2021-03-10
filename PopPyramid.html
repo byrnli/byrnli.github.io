@@ -11,7 +11,7 @@ function loadMales() {
   xhttp.onreadystatechange = function() {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
       var str = xhttp.responseText;
-      var mapAge = {A04:"0",A59:"5",A10:"10",A15:"15",A20:"20",A25:"25",A30:"30",A35:"35",A40:"40",A45:"45",A50:"50",A55:"55",A60:"60",A65:"65",A70:"70",A75:"75",A80:"80",A85:"85",A90:"90",A95:"95",A99:"99"};
+      var mapAge = {A04:"00",A59:"05",A10:"10",A15:"15",A20:"20",A25:"25",A30:"30",A35:"35",A40:"40",A45:"45",A50:"50",A55:"55",A60:"60",A65:"65",A70:"70",A75:"75",A80:"80",A85:"85",A90:"90",A95:"95",A99:"99"};
       var re = new RegExp(Object.keys(mapAge).join("|"),"gi");
       str = str.replace(re, function(matched){
         return mapAge[matched];
